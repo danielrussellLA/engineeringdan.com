@@ -7,40 +7,35 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { css } from "@emotion/core"
+// import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `)
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
+        css={css`
+          padding: 1rem;
+          p {
+            margin: 0 0 .05rem;
+          }
+        `}
       >
-        <main>{children}</main>
-        <footer style={{
-          marginTop: `2rem`
-        }}>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+        <p>engineeringdan.com is currently under construction. Thank you for your patience.</p>
+        <p>If you're curious to see what I've been up to lately, check out the site I work on: <a href="https://www.startpage.com" target="_blank" rel="noopener nofollow">https://www.startpage.com</a></p>
+        <p>- Daniel Russell</p>
       </div>
     </>
   )
