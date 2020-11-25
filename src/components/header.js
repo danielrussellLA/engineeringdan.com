@@ -4,12 +4,14 @@ import { css } from '@emotion/core'
 import TitleCard from './titleCard'
 import ColorCanvas from './colorCanvas'
 
-const ANIMATION_DURATION = 6 // seconds
-const NUM_PERMUTATIONS = 30
+const ANIMATION_DURATION = 3 // seconds
+const NUM_PERMUTATIONS = 15
 let CURR_IDX = 0
 
 const Header = () => {
-    let [toggles, setToggles] = useState(new Array(NUM_PERMUTATIONS).fill(0))
+    let [toggles, setToggles] = useState(
+        new Array(NUM_PERMUTATIONS).fill(0)
+    )
 
     let [start, setStart] = useState(false)
 

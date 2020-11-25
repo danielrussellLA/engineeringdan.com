@@ -11,7 +11,6 @@ const ColorCanvas = ({ id, show, duration }) => {
 
     useEffect(() => {
         let colorCount = random.rangeFloor(6, 24)
-        console.log("COLOR_COUNT", colorCount)
         let palette = random.shuffle(random.pick(palettes))
             .slice(0, colorCount)
         const createGrid = () => {
