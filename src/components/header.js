@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { css } from '@emotion/core'
 
 import TitleCard from './titleCard'
 import ColorCanvas from './colorCanvas'
 
 const ANIMATION_DURATION = 3 // seconds
-const NUM_PERMUTATIONS = 15
+const NUM_PERMUTATIONS = 12
 let CURR_IDX = 0
 
 const Header = () => {
@@ -24,15 +24,20 @@ const Header = () => {
         CURR_IDX = CURR_IDX + 1
     }
 
-    useEffect(() => {
+    const doAnimation = useCallback((toggles) => {
         setTimeout(() => {
             advanceColors(toggles)
+            doAnimation(toggles)
         }, ANIMATION_DURATION * 1000)
+    }, [])
+
+    useEffect(() => {
         if (!start) {
             advanceColors(toggles)
+            doAnimation(toggles)
             setStart(true)
         }
-    }, [toggles, start])
+    }, [toggles, start, doAnimation])
 
     return (
         <header css={css`
