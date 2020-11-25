@@ -41,7 +41,7 @@ const Header = () => {
                         font-family: 'Courier New', Courier, monospace;
                         font-size: min(max(1rem,4vw),1.6rem);
                     }
-                    h1:first-child {
+                    h1:first-of-type {
                         margin-bottom: 0.75rem;
                     }
                     p {
